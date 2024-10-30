@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head th:insert="~{/fragments/header_template :: headers}"></head>
+
+<body>
+    <nav th:insert="~{/fragments/navbar_template :: generalNavbar}"></nav>
+    <section class="index_content" sec:authorize="isAuthenticated()">
+        <!-- ToDo: Add content about the registered locations for this user --> 
+    </section>
+    <section class="index_content" sec:authorize="!isAuthenticated()">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>¡Error!</strong> Para ver el contenido debes tener iniciada tu sesión.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </section>
+</body>
+
+</html>

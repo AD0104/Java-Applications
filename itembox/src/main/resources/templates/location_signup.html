@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head th:insert="~{/fragments/header_template :: headers}"></head>
+
+<body>
+    <link rel="stylesheet" th:href="@{/css/locations_signup.css}" href="css/locations_signup.css">
+    <nav th:insert="~{/fragments/navbar_template :: generalNavbar}"></nav>
+    <section class="container mx_auto">
+        <div class="container d-flex justify-content-center align-items-center">
+            <form class="form" th:action="@{/sucursal/agregar}" th:object="${location}" method="POST">
+               <div class="mb-12">
+                   <label for="location_id" class="form-label">Nombre de Sucursal</label>
+                   <div class="col-sm-12">
+                       <input type="text" class="form-control" name="locationId" id="locationId" 
+                       th:field="${location.locationId}">
+                       <p th:if="${#fields.hasErrors('locationId')}" th:errorClass="text-danger"
+                            th:errors="${location.locationId}"></p>
+                   </div>
+               </div> 
+               <div class="mb-12">
+                   <label for="location_id" class="form-label">Descripción de Sucursal</label>
+                   <div class="col-sm-12">
+                       <input type="text" class="form-control" name="locationDescription" id="locationDescription" 
+                       th:field="${location.locationDescription}">
+                       <p th:if="${#fields.hasErrors('locationDescription')}" th:errorClass="text-danger"
+                            th:errors="${location.locationDescription}"></p>
+                   </div>
+               </div> 
+               <div class="button_container">
+                   <button type="submit" class="btn btn-success">Confirmar</button>
+               </div>
+               <!-- ToDo: Integrate a way to add default items for this location -->
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

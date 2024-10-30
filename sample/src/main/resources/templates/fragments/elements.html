@@ -1,0 +1,43 @@
+<div class="jumbotron" th:style="|background: url(@{../images/SpringCoreJumbotron.jpg}) no-repeat center center;|"
+    th:fragment="jumbotron">
+    <div class="container">
+        <h1>Spring Framework Guru - Fragment</h1>
+        <p class="lead" th:text="#{index.courses.tagline}">Online Courses for Spring Framework</p>
+    </div>
+</div>
+
+<div class="col-md-4" th:fragment="productdiv">
+    <div class="course-listing">
+        <div class="row">
+            <a href="/product" th:href="@{'/product/' + ${product.id} }">
+                <div class="cool-lg-12">
+                    <div class="course-box-image-container">
+                        <img role="presentation" src="../static/images/SpringIntroThumb.png"
+                            th:src="@{'/images/'+${product.imageUrl}}" class="course-box-image">
+                    </div>
+                    <div class="course-listing-title" th:text="${product.courseName}"> Course Title </div>
+                    <div class="course-listing-subtitle" th:text="${product.courseSubtitle}"> Course Subtitle</div>
+                </div>
+            </a>
+        </div>
+        <div class="row course-listing-extra-info col-xs-12">
+            <div class="col-xs-8">
+                <img src="../static/images/" alt="instructor_jt.jpg" th:src="@{'/images/'+${product.author.image}}"
+                    class="img-circle">
+                <div class="small course-author-name"
+                    th:text="${ (product.author.firstName)+' '+(product.author.lastName) }"></div>
+            </div>
+            <div class="col-xs-4">
+                <div class="small course-price" th:text="${product.price > 0 ? '$'+product.price : 'FREE' }"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="container" th:fragment="footer">
+    <section class="row navbar navbar-default ">
+        <div class="col-md-12">
+            <p class="navbar-text pull-left">Spring Framework With Thymeleaf Footer</p>
+        </div>
+    </section>
+</footer>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: header}">
+</head>
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<style>
+    .strike-trough {
+        text-decoration: line-through;
+    }
+</style>
+
+<body>
+    <nav th:insert="~{fragments/navbar :: navbar}"></nav>
+    <section class="container-fluid">
+        <section class="container-fluid search-container">
+            <form action="#" th:action="@{/user/create-simple-task}" th:object="${applicationUserTask}" method="post"
+                class="container-fluid">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+
+                        <input type="text" class="form-control" placeholder="Agregar Nueva Tarea"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="task-title"
+                            name="title" th:field="*{title}" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+        <section class="container tasks-container">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action flex-column align-items-start"
+                    th:each=" task : ${tasks}">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" th:text="${task.title}" th:classappend="${task.isFinished} ? strike-trough">
+                        </h5>
+                        <small th:text="|Started: ${task.startDate}|">3 days ago</small>
+                    </div>
+                    <div class="d-flex w-100 justify-content-between">
+                        <p class="mb-1" th:text="${task.description}"></p>
+                        <p th:text="${task.id}" style="display:none;" class="taskId"></p>
+                        <!-- <a
+                            th:href="@{/user/update-task/{taskId}/{isFinished}(taskId=${task.id}, isFinished=${task.isFinished})}">
+                            <p>Update Task</p>
+                        </a> -->
+                        <a th:href="@{/user/update-task/{taskId}/(taskId=${task.id})}">
+                            <p>Update Task</p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <script th:src="@{/js/tasks.js}"></script>
+</body>
+
+</html>

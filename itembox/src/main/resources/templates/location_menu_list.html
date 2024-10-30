@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head th:insert="~{/fragments/header_template :: headers}"></head>
+
+<body>
+    <link rel="stylesheet" th:href="@{/css/locations_list_menu.css}" href="css/locations_list_menu.css">
+    <nav th:insert="~{/fragments/navbar_template :: generalNavbar}"></nav>
+    <section class="fluid-container d-flex justify-content-center align-items-center">
+        <section class="table_container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Número
+                        </th>
+                        <th>
+                            Nombre 
+                        </th>
+                        <th>
+                            Descripción 
+                        </th>
+                        <th>
+                            Elementos 
+                        </th>
+                    </tr>
+                </thead>
+                <tbody th:if="${ not #lists.isEmpty(locations) }">
+                    <tr th:each="location : ${locations}" class="table_row_location">
+                        <td th:text="${location.id}" class="location_id"></td>
+                        <td th:text="${location.locationId}"></td>
+                        <td th:text="${location.locationDescription}"></td>
+                        <td>
+                            <ul>
+                                <li th:each="item : ${location.items}" th:text="${item.itemName}"></li>
+                            </ul>
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>
+            <div class="button_container">
+                <a type="button" class="btn btn-success" th:href="@{/sucursal/agregar}" href="/sucursal/agregar">Agregar sucursal</a>
+            </div>
+        </section>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script th:src="@{/js/location_menu_list.js}" src="/js/location_menu_list.js"></script>
+</body>
+
+</html>

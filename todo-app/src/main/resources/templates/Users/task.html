@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: header}">
+</head>
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<style>
+    .strike-trough {
+        text-decoration: line-through;
+    }
+</style>
+
+<body>
+    <nav th:insert="~{fragments/navbar :: navbar}"></nav>
+    <section class="container-fluid"></section>
+</body>
+
+</html>

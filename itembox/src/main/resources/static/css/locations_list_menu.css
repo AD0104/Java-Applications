@@ -1,0 +1,14 @@
+section.table_container {
+  width: 60%;
+  height: auto;
+  margin-block: 1rem;
+}
+section.table_container .button_container {
+  display: flex;
+  justify-content: end;
+}
+section.table_container .table_row_location {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=locations_list_menu.css.map */

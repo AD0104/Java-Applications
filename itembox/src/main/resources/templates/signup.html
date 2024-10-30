@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head th:include="~{/fragments/header_template :: headers}">
+
+</head>
+
+<body>
+    <link rel="stylesheet" href="../static/css/login_form.css" th:href="@{/css/login_form.css}">
+    <nav th:insert="~{/fragments/navbar_template :: generalNavbar}"></nav>
+    <section class="container-fluid" id="loginContainer">
+        <div class="container-xl d-flex justify-content-center align-items-center">
+            <form class="form container-lg" th:action="@{/auth/signup}" th:object="${signupDto}" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuario</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" name="userName" id="username" placeholder="UserName"
+                            th:field="${signupDto.userName}">
+                        <p th:if="${#fields.hasErrors('userName')}" th:errorClass="text-danger"
+                            th:errors="${signupDto.userName}"></p>
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <div class="col-sm-12">
+                        <input type="password" class="form-control" name="password" id="password"
+                            th:field="${signupDto.password}">
+                        <p th:if="${#fields.hasErrors('password')}" th:errorClass="text-danger"
+                            th:errors="${signupDto.password}"></p>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Confirmar Contraseña</label>
+                    <div class="col-sm-12">
+                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+                            th:field="${signupDto.confirmPassword}">
+                        <p th:if="${#fields.hasErrors('confirmPassword')}" th:errorClass="text-danger"
+                            th:errors="${signupDto.confirmPassword}"></p>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary mb-3">Aceptar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

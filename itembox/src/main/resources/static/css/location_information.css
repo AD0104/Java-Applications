@@ -1,0 +1,26 @@
+section#location_content {
+  margin-block: 1rem;
+}
+
+section#location_content_information {
+  width: 100%;
+  padding: 1rem;
+}
+section#location_content_information p.location_content_information__title {
+  min-width: 40%;
+  max-width: 50%;
+  width: 45%;
+  background-color: #d2d2d2;
+}
+section#location_content_information p.location_content_information__text {
+  min-width: 40%;
+  max-width: 50%;
+  width: 55%;
+  margin-left: 1rem;
+}
+
+section#location_content_items {
+  width: 50%;
+}
+
+/*# sourceMappingURL=location_information.css.map */

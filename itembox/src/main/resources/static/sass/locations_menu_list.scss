@@ -1,0 +1,14 @@
+section.table_container {
+  width: 60%;
+  height: auto;
+  margin-block: 1rem;
+
+  .button_container {
+    display: flex;
+    justify-content: end;
+  }
+
+  .table_row_location {
+    cursor: pointer;
+  }
+}

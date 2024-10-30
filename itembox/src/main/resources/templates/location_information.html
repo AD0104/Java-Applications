@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head th:insert="~{/fragments/header_template :: headers}"></head>
+
+<body>
+    <link rel="stylesheet" th:href="@{/css/location_information.css}" href="css/locations_information.css">
+    <nav th:insert="~{/fragments/navbar_template :: generalNavbar}"></nav>
+
+    <section id="location_content" class="fluid-container d-flex justify-content-evenly align-items-center">
+        <section id="location_content_information" class="container d-flex flex-column justify-content-center align-items-center">
+            <div class="container row">
+                <div class="d-flex justify-content-center align-items-center"> 
+                    <p class="location_content_information__title">Número de Sucursal</p>
+                    <p class="location_content_information__text" th:text="${location.id}"></p>
+                </div>
+            </div>
+            <div class="container row">
+                <div class="d-flex justify-content-center align-items-center">
+                    <p class="location_content_information__title">Nombre de Sucursal</p>
+                    <p class="location_content_information__text" th:text="${location.locationId}"></p>
+                </div>
+            </div>
+            <div class="container row">
+                <div class="d-flex justify-content-center align-items-center">
+                    <p class="location_content_information__title">Descripción de Sucursal</p>
+                    <p class="location_content_information__text" th:text="${location.locationDescription}"></p>
+                </div>
+            </div>
+        </section>
+        <section id="location_content_items" class="container">
+            
+        </section>
+    </section>
+</body>
+</html>

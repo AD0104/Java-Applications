@@ -1,0 +1,20 @@
+.form {
+  margin-block: 1rem;
+  width: 80%;
+  height: auto;
+
+  border: 1px solid black;
+  border-radius: 8px;
+
+  padding: 1rem;
+
+  .mb-12 {
+    margin-block: 1rem;
+  }
+
+  .button_container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+}
